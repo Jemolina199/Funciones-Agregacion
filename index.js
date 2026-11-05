@@ -1,5 +1,5 @@
 const express = require('express');
-const ProductModel = require('./modelos/Product');
+const ProductModel = require('./modelos/product');
 const sequelize = require('./conexion/db');
 const app = express();
 app.use(express.json());

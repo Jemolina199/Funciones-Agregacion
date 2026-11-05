@@ -1,16 +1,6 @@
 const { Sequelize } = require('sequelize');
 const sequelize = new Sequelize(
-    'grafico',
-    'root',
-    'Admin1234',
-    {
-        host: 'localhost',
-        port: 3306,
-        dialect: 'mysql'
-    }
+  process.env.DB_NAME || 'productos_demo', process.env.DB_USER || 'root', process.env.DB_PASSWORD || '',
+  { host: process.env.DB_HOST || 'localhost', port: Number(process.env.DB_PORT || 3306), dialect: 'mysql', logging: false }
 );
-sequelize.authenticate()
-    .then(() => { console.log('Conexión exitosa a la base de datos'); })
-    .catch((error) => { console.log('Error de conexión: ', error); });
-
 module.exports = sequelize;
